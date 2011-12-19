@@ -10,6 +10,7 @@ Hoe.plugin :git     # `gem install hoe-git`
 
 Hoe.spec 'fibur' do
   developer('Aaron Patterson', 'aaron@tenderlovemaking.com')
+  self.version = '1.0.0'
   self.readme_file   = 'README.rdoc'
   self.history_file  = 'CHANGELOG.rdoc'
   self.extra_rdoc_files  = FileList['*.rdoc']

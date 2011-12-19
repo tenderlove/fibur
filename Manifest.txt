@@ -3,5 +3,4 @@ CHANGELOG.rdoc
 Manifest.txt
 README.rdoc
 Rakefile
-bin/fibur
 lib/fibur.rb
