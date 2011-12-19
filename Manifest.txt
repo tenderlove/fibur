@@ -4,3 +4,4 @@ Manifest.txt
 README.rdoc
 Rakefile
 lib/fibur.rb
+test/test_fibur.rb
