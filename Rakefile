@@ -14,6 +14,9 @@ Hoe.spec 'fibur' do
   self.readme_file   = 'README.rdoc'
   self.history_file  = 'CHANGELOG.rdoc'
   self.extra_rdoc_files  = FileList['*.rdoc']
+  self.spec_extras = {
+    :required_ruby_version => '>= 1.9.2'
+  }
 end
 
 # vim: syntax=ruby

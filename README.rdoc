@@ -1,32 +1,54 @@
 = fibur
 
-* FIX (url)
+* http://github.com/tenderlove/fibur
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Fibur is a gem that gives you full concurrency during your I/O calls in Ruby
+1.9.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* So simple it can't fail
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+This example shows how to wrap a method call with a Fibur.
+
+    require 'benchmark'
+    require 'net/http'
+    require 'uri'
+    require 'fibur' # use the Fibur gem.
+    
+    def network_read(uri)
+      Net::HTTP.get_response uri
+    end
+    
+    n = 50000
+    uri = URI('http://google.com/')
+    
+    Benchmark.bm(5) do |x|
+      x.report('loop') { 100.times { network_read(uri) } }
+      x.report('fibur') {
+        100.times.map {
+          Fibur.new { network_read(uri) }
+        }.map(&:join)
+      }
+    end
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* Only works on Ruby 1.9
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* gem install fibur
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2011 Aaron Patterson
+Copyright (c) 2011 Aaron Patterson, Adequate Systems
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
