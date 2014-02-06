@@ -38,7 +38,7 @@ This example shows how to wrap a method call with a Fibur.
 
 == REQUIREMENTS:
 
-* Only works on Ruby 1.9
+* Only works on Ruby 1.9 or greater
 
 == INSTALL:
 
