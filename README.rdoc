@@ -24,13 +24,13 @@ This example shows how to wrap a method call with a Fibur.
       Net::HTTP.get_response uri
     end
     
-    n = 50000
+    n = 100
     uri = URI('http://google.com/')
     
     Benchmark.bm(5) do |x|
-      x.report('loop') { 100.times { network_read(uri) } }
+      x.report('loop') { n.times { network_read(uri) } }
       x.report('fibur') {
-        100.times.map {
+        n.times.map {
           Fibur.new { network_read(uri) }
         }.map(&:join)
       }
